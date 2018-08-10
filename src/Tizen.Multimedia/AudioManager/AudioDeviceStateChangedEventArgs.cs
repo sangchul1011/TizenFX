@@ -24,10 +24,13 @@ namespace Tizen.Multimedia
     /// <since_tizen> 3 </since_tizen>
     public class AudioDeviceStateChangedEventArgs : EventArgs
     {
-        internal AudioDeviceStateChangedEventArgs(AudioDevice device, AudioDeviceState changedState)
+        internal AudioDeviceStateChangedEventArgs(AudioDevice device, bool isRunning)
         {
             Device = device;
-            State = changedState;
+            if (isRunning)
+                State = AudioDeviceState.Running;
+            else
+                State = AudioDeviceState.Idle;
         }
 
         /// <summary>

@@ -201,10 +201,10 @@ namespace Tizen.Multimedia
 
         private static void RegisterDeviceStateChangedEvent()
         {
-            _audioDeviceStateChangedCallback = (device, changedState, _) =>
+            _audioDeviceStateChangedCallback = (device, isRunning, _) =>
             {
                 _audioDeviceStateChanged?.Invoke(null,
-                    new AudioDeviceStateChangedEventArgs(new AudioDevice(device), changedState));
+                    new AudioDeviceStateChangedEventArgs(new AudioDevice(device), isRunning));
             };
 
             Interop.AudioDevice.AddDeviceStateChangedCallback(AudioDeviceOptions.All,

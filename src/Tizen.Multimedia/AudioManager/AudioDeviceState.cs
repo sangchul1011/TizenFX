@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+using System;
+
 namespace Tizen.Multimedia
 {
     /// <summary>
@@ -25,12 +27,26 @@ namespace Tizen.Multimedia
         /// <summary>
         /// Deactivated state.
         /// </summary>
+        [Obsolete("Deprecated since API level 5. Please use the Idle instead.")]
         Deactivated,
 
         /// <summary>
         /// Activated state.
         /// </summary>
-        Activated
+        [Obsolete("Deprecated since API level 5. Please use the Running instead.")]
+        Activated,
+
+        /// <summary>
+        /// Idle state.
+        /// </summary>
+        /// <since_tizen> 5 </since_tizen>
+        Idle = Deactivated,
+
+        /// <summary>
+        /// Running state.
+        /// </summary>
+        /// <since_tizen> 5 </since_tizen>
+        Running = Activated
     }
 
 }
